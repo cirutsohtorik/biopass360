@@ -12,11 +12,12 @@
 
 ---
 
-## 🎬 Proje Tanıtım Videosu (Quick Pitch & Demo)
+## 🎬 Proje Tanıtım & Pitch Videosu (0:20)
 
-https://github.com/cirutsohtorik/biopass360/raw/main/docs/brag.mp4
+[![BioPass 360 Tanıtım Videosunu İzle](docs/video-preview.png)](https://biopass360.onrender.com/docs/brag.mp4)
 
-> 💡 *Videoyu yukarıdaki yerleşik oynatıcıdan izleyebilir, alternatif olarak [Render CDN Üzerinden Açabilir](https://biopass360.onrender.com/docs/brag.mp4) veya [Doğrudan İndirebilirsiniz](docs/brag.mp4).*
+> ▶️ **[Videoyu Tarayıcıda Doğrudan Oynatmak İçin Tıklayın (0:20 sn)](https://biopass360.onrender.com/docs/brag.mp4)**  
+> *(Render CDN üzerinden tüm tarayıcılarda sesli ve tam ekran oynatılır)*
 
 ---
 
