@@ -14,8 +14,6 @@
 
 ## 🎬 Proje Tanıtım & Pitch Videosu (YouTube)
 
-[![BioPass 360 Tanıtım & Pitch Videosu](https://img.youtube.com/vi/uQ6A-HtPJjg/maxresdefault.jpg)](https://www.youtube.com/watch?v=uQ6A-HtPJjg)
-
 > ▶️ **[YouTube Üzerinden İzlemek İçin Tıklayın (BioPass 360 Tanıtım Videosu)](https://www.youtube.com/watch?v=uQ6A-HtPJjg)**  
 > 🌐 *Ayrıca [Canlı Web Sitemiz](https://biopass360.onrender.com) üzerinde sağ üstteki kırmızı **"Tanıtım Videosu"** butonuna basarak sayfadan ayrılmadan da izleyebilirsiniz.*
 
