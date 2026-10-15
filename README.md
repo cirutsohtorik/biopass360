@@ -5,9 +5,18 @@
 
 [![Live Website](https://img.shields.io/badge/Live%20Demo-biopass360.onrender.com-brightgreen?style=flat-square&logo=render)](https://biopass360.onrender.com)
 [![Regulation](https://img.shields.io/badge/Compliance-EU%20RED%20III%20%7C%20CORSIA%20%7C%20ISCC-blue?style=flat-square)](https://biopass360.onrender.com)
+[![Demo Video](https://img.shields.io/badge/Pitch%20Video-Watch%20MP4-red?style=flat-square)](https://biopass360.onrender.com/docs/brag.mp4)
 [![Architecture](https://img.shields.io/badge/Architecture-Archify%20Interactive-purple?style=flat-square)](https://biopass360.onrender.com)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python)](src/biopass360)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0%2B-blue?style=flat-square&logo=typescript)](src/biopass360/mrv)
+
+---
+
+## 🎬 Proje Tanıtım Videosu (Quick Pitch & Demo)
+
+https://github.com/cirutsohtorik/biopass360/raw/main/docs/brag.mp4
+
+> 💡 *Videoyu yukarıdaki yerleşik oynatıcıdan izleyebilir, alternatif olarak [Render CDN Üzerinden Açabilir](https://biopass360.onrender.com/docs/brag.mp4) veya [Doğrudan İndirebilirsiniz](docs/brag.mp4).*
 
 ---
 
