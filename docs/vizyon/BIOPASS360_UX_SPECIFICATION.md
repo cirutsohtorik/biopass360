@@ -22,7 +22,7 @@ Biyoyakıt tedarik zinciri (özellikle Kullanılmış Kızartma Yağları - UCO)
   - *Affordance & Signifiers:* Ağır sanayi şartlarında (yağlı eldivenler, parlak güneş ışığı, gürültülü pompa sesleri) hata payını sıfıra indiren dev dokunmatik hedefler, anında anlaşılır trafik ışığı renk kodlaması ve çok duyulu (haptic + ses + görsel) geri bildirimler.
   - *Mistake Prevention (Hata Önleme):* Kritik kararlarda (örneğin tanka boşaltım vanasını açma veya sahte partiyi karantinaya alma) kazara basmayı önleyen "Swipe-to-Confirm" (Kaydırarak Onayla) kilit mekanizmaları.
   - *Conceptual Models:* Kullanıcının zihnindeki zihinsel modelle sistemin çalışma şeklini birebir eşleştiren dijital ikiz ve spektral örtüşme grafikleri.
-- **Alan Cooper Disiplini:**
+- **Hedef Odaklı Persona:**
   - *Goal-Directed Design:* Kullanıcıların "görevlerine" değil, nihai "amaçlarına" odaklanma. Mehmet Usta'nın amacı form doldurmak değil, "huzurla eve gitmek ve fabrikayı sahte yağdan korumak"tır. Deniz Hanım'ın amacı rapor hazırlamak değil, "AB denetçisinin karşısında 10 saniyede şüphe bırakmayacak kanıt sunmaktır".
 
 ---
@@ -304,7 +304,7 @@ timeline
 
 ---
 
-## 5. UI TASARIM BİLEŞENLERİ VE ERGONOMİ REHBERİ (DON NORMAN CHECKLIST)
+## 5. UI TASARIM BİLEŞENLERİ VE ERGONOMİ REHBERİ (KONTROL LİSTESİ)
 
 1. **Görünürlük (Visibility):**
    - Karar verici göstergeler ekranın üst üçte birlik alanında, 48pt ve üzeri puntolarla yer alır.
