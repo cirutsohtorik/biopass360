@@ -1,7 +1,6 @@
-# BioPass 360 — UX Tasarım, Kokpit & Jüri Sunum Spesifikasyonu
+# BioPass 360 — UX Tasarım, Kokpit & Sunum Spesifikasyonu
 **DEKATHON 2026: Ulaşımda Karbonsuzlaşma Ideathonu**  
-**Tasarımcı:** Sally 🎨 (BMAD Senior UX & Interaction Designer)  
-**Tasarım Disiplini:** Don Norman (Human-Centered Design) & Alan Cooper (Goal-Directed Persona Discipline)
+**Tasarım Disiplini:** İnsan merkezli tasarım ve hedef odaklı persona yaklaşımı
 
 ---
 
@@ -9,12 +8,12 @@
 
 ### 1.1 Problem Tanımı & Operasyonel Gerçeklik
 Biyoyakıt tedarik zinciri (özellikle Kullanılmış Kızartma Yağları - UCO), endüstriyel lojistiğin en karmaşık, suistimale en açık ve regülasyon baskısının en yüksek olduğu alanlardan biridir.
-- **Tağşiş Riski:** Küresel ölçekte UCO fiyatları saf palm veya ham bitkisel yağların 1.5-2 katına çıkabildiği için, sahte UCO (palm stearin veya geri dönüştürülmüş madeni yağ katkılı) piyasada sıkça görülmektedir.
-- **RED III ve CBAM Baskısı:** Avrupa Birliği Yenilenebilir Enerji Direktifi III (RED III) ve Sınırda Karbon Düzenleme Mekanizması (CBAM), ham maddenin kaynağından rafineri çıkışına kadar her gram CO2 eşdeğerinin (gCO2eq/MJ) ispatlanmasını ve ISCC (International Sustainability and Carbon Certification) denetimlerinden hatasız geçilmesini zorunlu kılmaktadır.
-- **Saha Çıkmazı:** Rafineri kapısında kuyrukta bekleyen tankerlerin numune analizleri geleneksel laboratuvarlarda 4-6 saat sürerken, kabul şefinin karar vermek için sadece **3 dakikası** vardır. Yanlış kabul milyon dolarlık parti kontaminasyonu ve ISCC lisans iptaline; haksız ret ise filo krizine ve tedarikçi kaybına yol açar.
+- **Tağşiş Riski:** UCO, RED III Annex IX Part B kapsamında teşvikli bir hammadde olduğu için, sahte UCO (palm stearin veya geri dönüştürülmüş madeni yağ katkılı) piyasada sıkça görülmektedir.
+- **RED III Baskısı:** Avrupa Birliği Yenilenebilir Enerji Direktifi III (RED III), ham maddenin kaynağından rafineri çıkışına kadar her gram CO2 eşdeğerinin (gCO2eq/MJ) ispatlanmasını ve ISCC (International Sustainability and Carbon Certification) denetimlerinden hatasız geçilmesini zorunlu kılmaktadır.
+- **Saha Çıkmazı:** Rafineri kapısında kuyrukta bekleyen tankerlerin numune analizleri geleneksel laboratuvarlarda saatler mertebesinde sürerken, kabul şefinin karar vermek için sadece **3 dakikası** vardır. Yanlış kabul parti kontaminasyonu ve sertifikasyon riskine; haksız ret ise filo krizine ve tedarikçi kaybına yol açar.
 
-### 1.2 Tasarım Felsefemiz (Don Norman & Alan Cooper)
-- **Don Norman Disiplini:** 
+### 1.2 Tasarım Felsefemiz
+- **İnsan Merkezli Tasarım:** 
   - *Affordance & Signifiers:* Ağır sanayi şartlarında (yağlı eldivenler, parlak güneş ışığı, gürültülü pompa sesleri) hata payını sıfıra indiren dev dokunmatik hedefler, anında anlaşılır trafik ışığı renk kodlaması ve çok duyulu (haptic + ses + görsel) geri bildirimler.
   - *Mistake Prevention (Hata Önleme):* Kritik kararlarda (örneğin tanka boşaltım vanasını açma veya sahte partiyi karantinaya alma) kazara basmayı önleyen "Swipe-to-Confirm" (Kaydırarak Onayla) kilit mekanizmaları.
   - *Conceptual Models:* Kullanıcının zihnindeki zihinsel modelle sistemin çalışma şeklini birebir eşleştiren dijital ikiz ve spektral örtüşme grafikleri.
@@ -48,11 +47,11 @@ journey
   1. Kapıdaki kamyon kuyruğunu 5 dakikanın altında eritmek, şoförlerle gereksiz tartışmaya girmemek.
   2. Fabrikaya asla tağşişli (palm yağı veya su karışmış) hammadde sokmamak; aksi takdirde reaktör katalizörleri bozulur ve fatura ona kesilir.
   3. Karmaşık yazılımlarla, küçük butonlarla ve anlaşılmaz kodlarla vakit kaybetmemek.
-- **Don Norman İlkelerine Göre Çözüm:**
+- **Çözüm:**
   - *Görsel Hiyerarşi:* Tüm ekran tek bir baskın soruya cevap verir: **"BU YAĞ TEMİZ Mİ, BOŞALTAYIM MI?"**
   - *Trafik Işığı Semantiği:* 
     - 🟢 **BÜYÜK YEŞİL KART:** UCO Saf (%97.4 Eşleşme). FFA: %3.1, Nem: %0.08. Tek hareketle sağa kaydır -> "Giriş İzni Ver".
-    - 🔴 **YANIP SÖNEN KIRMIZI ALARM:** Tağşiş Algılandı (%26 Palm Yağı Stearini). Haptik titreşim + yüksek frekanslı onaylama sireni. Tanka giden otomatik selenoid valf kilitlenir.
+    - 🔴 **YANIP SÖNEN KIRMIZI ALARM:** Tağşiş Algılandı (%28 Palm Yağı Stearini). Haptik titreşim + yüksek frekanslı onaylama sireni. Tanka giden otomatik selenoid valf kilitlenir.
     - 🟡 **SARI UYARI:** Sınırda Değer (Nem %0.75). "Ekstra Numune Al" veya "Laboratuvara Sevk Et".
   - *Fiziksel Ergonomi:* Minimum 64x64 piksel dokunma alanları, eldiven dostu büyük kartlar, dış mekan yüksek kontrastlı (Ultra High Contrast Dark/Light Mode) arayüz.
 
@@ -64,11 +63,11 @@ journey
 - **Kişisel Hedefleri:**
   1. AB'ye ihraç edilen her metrik ton Biyodizel / HVO yakıtının ISCC sertifikasyonunu garanti altına almak.
   2. Olası bir denetimde (Audit) rastgele seçilen herhangi bir partinin tarladan/restorandan rafineri kapısına kadar olan tüm karbon izini 10 saniye içinde belgeli olarak sunabilmek.
-  3. CBAM ve RED III sınır değerlerini aşan (emisyon tasarrufu <%65 olan) partileri anında yakalamak ve portföyden ayıklamak.
-- **Don Norman & Cooper İlkelerine Göre Çözüm:**
+  3. RED III sınır değerlerini aşan (emisyon tasarrufu <%65 olan) partileri anında yakalamak ve portföyden ayıklamak.
+- **Çözüm:**
   - *Zihinsel Model Uyumu:* Kokpit, Deniz Hanım'ın zihnindeki "Tedarik Zinciri Değer Akışı"na göre kurgulanmıştır.
   - *Audit-Ready One-Click Generation:* Denetçi "Parti #8842'yi görelim" dediğinde tek tıkla dijital pasaportun W3C Verifiable Credential ve SHA-256 kriptografik damgalı PDF çıktısı üretilir.
-  - *Kümülatif Eşik Çizgisi:* RED III hedef çizgisi (%65 tasarruf eşiği olan max 33.8 gCO2eq/MJ) ile gerçekleşen rafineri ortalaması (14.2 gCO2eq/MJ -> %84.9 Tasarruf) anlık olarak canlı bir hız göstergesi şeklinde sunulur.
+  - *Kümülatif Eşik Çizgisi:* RED III hedef çizgisi (%65 tasarruf eşiği olan max 33.8 gCO2eq/MJ) ile gerçekleşen rafineri ortalaması (14.1 gCO2eq/MJ -> %85.0 Tasarruf) anlık olarak canlı bir hız göstergesi şeklinde sunulur.
 
 ---
 
@@ -123,7 +122,7 @@ journey
 |   * İyot Değeri (IV):           114 g I2/100g         --> 🟢 NORMAL UCO       |
 |                                                                               |
 +-------------------------------------------------------------------------------+
-|  İŞLEM EYLEMİ: (Don Norman 'Hata Önleme' Slider Mekanizması)                  |
+|  İŞLEM EYLEMİ: ('Hata Önleme' Slider Mekanizması)                      |
 |                                                                               |
 |  >>> [ GİRİŞ İZNİ VER & TANK 102 VANASINI AÇMAK İÇİN SAĞA KAYDIRIN >>> ]      |
 |                                                                               |
@@ -133,7 +132,7 @@ journey
 
 > **Simüle Edilen Kırmızı Alarm Hali (Tağşiş Durumunda Ekranın Değişimi):**
 > Ekranın tamamı yüksek kontrastlı **KIRMIZI (Crimson Alert #D32F2F)** renge döner.
-> - **BAŞLIK:** `🔴 KRİTİK ALARM: TAĞŞİŞ SAPTANDI (%28.4 PALM YAĞI STE ARİNİ)`
+> - **BAŞLIK:** `🔴 KRİTİK ALARM: TAĞŞİŞ SAPTANDI (%28 PALM YAĞI STEARİNİ)`
 > - **UYARI:** `1720 nm ve 2140 nm dalga boylarında karakteristik palm trigliserid pikleri tespit edildi! Bu parti RED III Madde 29 sürdürülebilirlik kriterlerini ihlal etmektedir.`
 > - **SİSTEM KİLİDİ:** Boşaltım vanası fiziksel olarak kilitlenir. Karantina tutanağı otomatik oluşturulur.
 
@@ -149,7 +148,7 @@ journey
 +------------------------------------------------------------------------------------------------------------------------+
 | [CANLI METRİKLER]                                                                                                      |
 |  GÜNLÜK İŞLENEN HAMMADDE    ORTALAMA KARBON YOĞUNLUĞU    RED III EMİSYON TASARRUFU    ISCC UYUM SKORU    ÖNLENEN CEZA  |
-|  1.450 Ton UCO / Gün        13.8 gCO2eq/MJ               %85.3 (Hedef: >%65)          %99.4 [A+]         €340.000 / Ay |
+|  1.450 Ton UCO / Gün        14.1 gCO2eq/MJ               %85.0 (Hedef: >%65)          %99.4 [A+]         €340.000 / Ay |
 +------------------------------------------------------------------------------------------------------------------------+
 | [CANLI TEDARİK ZİNCİRİ VE DİJİTAL İKİZ (TESİS AKIŞI)]                                                                   |
 |                                                                                                                        |
@@ -165,7 +164,7 @@ journey
 |    94.0 | - - - - - - - - - - - - - - - - - - - - - - - - - - - Fosil Dizel Karşılaştırma Eşiği (94.0 gCO2eq/MJ)       |
 |         |                                                                                                              |
 |    32.9 | - - - - - - - - - - - - - - - - - - - - - - - - - - - RED III Maksimum İzin Verilen Eşik (%65 Tasarruf Sınırı|
-|    13.8 | [BioPass 360 Doğrulanmış Ortalama: 13.8 gCO2eq/MJ] ════════════════════════════════ (Gerçekleşen Tasarruf: %85.3) |
+|    14.1 | [BioPass 360 Doğrulanmış Ortalama: 14.1 gCO2eq/MJ] ════════════════════════════════ (Gerçekleşen Tasarruf: %85.0) |
 |     0.0 +--------------------------------------------------------------------------------------------------------->    |
 |           08:00       10:00       12:00       14:00       16:00       18:00       20:00 (Canlı Parti Akışı)        |
 +------------------------------------------------------------------------------------------------------------------------+
@@ -206,7 +205,7 @@ journey
 |    * Spektroskopik Tağşiş İndeksi: 0.00 (Temiz) * Palm Yağı Olasılığı: %0.0   |
 |    * Spektrum SHA-256 Hash: 9f8a3c42e1b8...98e4f1a20c3d (Doğrulandı)          |
 +-------------------------------------------------------------------------------+
-| 3. RED III / CBAM YAŞAM DÖNGÜSÜ KARBON ANALİZİ (LCA)                          |
+| 3. RED III YAŞAM DÖNGÜSÜ KARBON ANALİZİ (LCA)                                 |
 |    Formül: E = e_ec + e_l + e_p + e_td + e_u - e_sca                          |
 |    - Hammadde Çıkarma/Toplama (e_ec):    0.0 gCO2eq/MJ (Atık / UCO Sıfır Eşik)|
 |    - Arazi Kullanım Değişimi (e_l):      0.0 gCO2eq/MJ                        |
@@ -215,7 +214,7 @@ journey
 |    ─────────────────────────────────────────────────────────────────────────  |
 |    TOPLAM SALIM (E):                    12.4 gCO2eq/MJ                        |
 |    FOSİL YAKIT KARŞILAŞTIRMASI (EC):    94.0 gCO2eq/MJ                        |
-|    GERÇEKLEŞEN SERA GAZI TASARRUFU:     %86.8 (RED III Min %65 Şartını Sağlar)|
+|    GERÇEKLEŞEN SERA GAZI TASARRUFU:     %85.0 (RED III Min %65 Şartını Sağlar)|
 +-------------------------------------------------------------------------------+
 | 4. DEĞİŞTİRİLEMEZ AUDIT MÜHÜRÜ & REGÜLASYON UYUMU                             |
 |    * ISCC EU Sertifika Kodu: EU-ISCC-Cert-TR2026-8842                         |
@@ -258,39 +257,41 @@ journey
 
 ---
 
-## 4. DEKATHON 2026 JÜRİ DENEYİMİ VE 3 DAKİKALIK SUNUM AKIŞI
+## 4. DEKATHON 2026 3 DAKİKALIK SUNUM AKIŞI (SİMÜLASYON)
+
+> **Not:** Elimizde fiziksel NIR probu yok. Şişeler sahne aracıdır; ekrandaki sonuçlar **sentetik spektrum simülasyonundan** gelir ve bu sunumda açıkça söylenir.
 
 ```mermaid
 timeline
     title 3 Dakikalık Dekathon Final Sunum Kurgusu
     00:00 - 00:45 : Giriş & Ağır Sanayi Gerçeği : "Bir kamyon sahte yağ, fabrikayı ve ihracatı nasıl batırır?"
-    00:45 - 01:45 : AHA! Anı (Canlı Simülasyon) : El tipi spektrometre ile sahte partinin 3 saniyede yakalanması ve alarmı
-    01:45 - 02:30 : Çözümün Gücü (Kokpit & DPP) : RED III uyumu, CBAM kalkanı ve QR kodun jüri telefonunda açılması
+    00:45 - 01:45 : AHA! Anı (Canlı Simülasyon) : El tipi spektrometre ile sahte partinin simülasyonla yakalanması ve alarmı
+    01:45 - 02:30 : Çözümün Gücü (Kokpit & DPP) : RED III uyumu ve QR kodun jüri telefonunda açılması
     02:30 - 03:00 : İş Modeli & Büyük Kapanış : "DB Tarımsal Enerji ve DEPARK ile Biyoyakıtın Güven Pasaportu!"
 ```
 
-### 4.1 'AHA!' Anı Canlı Sahne Simülasyonu (00:45 - 01:45)
+### 4.1 'AHA!' Anı Sahne Simülasyonu (00:45 - 01:45)
 - **Sahne Düzeni:**
   - Sunucu masasında iki adet şeffaf cam numune şişesi:
     - **Şişe A:** Gerçek Kullanılmış Kızartma Yağı (UCO - altın sarısı/kahve tonu).
-    - **Şişe B:** Tağşişli Numune (Dışarıdan bakıldığında Şişe A ile **birebir aynı renkte ve akışkanlıkta**, ancak içine %30 ucuz Palm Stearini ve mineral yağ katılmış).
-  - Sunucu jüriye döner: *"Sayın jüri üyeleri, çıplak gözle veya standart yoğunluk ölçerle bu iki yağ arasındaki farkı ayırt etmek imkansızdır. Bir laboratuvar testi 4 saat sürer. Mehmet Usta'nın ise kapıda bekleyen tanker için sadece 3 dakikası var!"*
-- **Canlı Test:**
-  - El tipi SpectroBio NIR tarayıcı mockup'ı / demosu Şişe A'ya tutulur.
+    - **Şişe B:** Tağşişli Numune (Dışarıdan bakıldığında Şişe A ile **birebir aynı renkte ve akışkanlıkta**, ancak senaryoda içine %28 palm stearini katılmış kabul edilir).
+  - Sunucu jüriye döner: *"Sayın jüri üyeleri, çıplak gözle veya standart yoğunluk ölçerle bu iki yağ arasındaki farkı ayırt etmek imkansızdır. Bir laboratuvar analizi saatler sürer. Mehmet Usta'nın ise kapıda bekleyen tanker için sadece 3 dakikası var!"*
+- **Simülasyon:**
+  - Şişe A'yı temsil eden sentetik spektrum sisteme verilir.
   - Ekranda 2 saniye içinde: **🟢 BÜYÜK YEŞİL ONAY - SAF UCO - RED III UYUMLU.**
-  - Ardından cihaz Şişe B'ye tutulur:
+  - Ardından Şişe B'yi temsil eden spektrum verilir:
   - 3... 2... 1...
   - **BÜYÜK GÖRSEL & İŞİTSEL EFEKT:** Sunum ekranı aniden **KIPKIRMIZI** yanıp söner!
   - Ekranda büyük harflerle:
     ```
-    🛑 KRİTİK TAĞŞİŞ ALARMI! %28 PALM YAĞI STE ARİNİ TESPİT EDİLDİ!
-    GİRİŞ ENGELLENDİ // OTOMATİK VANA KİLİTLENDİ // CEZA ÖNLENDİ: €65.000
+    🛑 KRİTİK TAĞŞİŞ ALARMI! %28 PALM YAĞI STEARİNİ TESPİT EDİLDİ!
+    GİRİŞ ENGELLENDİ // PARTİ REDDEDİLDİ
     ```
   - **Jürideki Duygu:** Şaşkınlık ve operasyonel problemin çözüldüğüne dair derin bir ikna olma ("AHA! Gerçekten bu olmadan biyoyakıt rafinerisi yönetilemez!").
 
-### 4.2 İnteraktif Jüri Katılımı (01:45 - 02:30)
+### 4.2 İnteraktif Katılım (01:45 - 02:30)
 - Ekrana dev bir **BioPass 360 QR Kodu** yansıtılır.
-- Sunucu: *"Sayın jüri üyeleri, telefon kameralarınızı ekrana tutun. Şişe A için saniyeler içinde oluşturduğumuz dijital hammadde pasaportunu ve blokzincir mühürlü LCA karbon hesabını kendi ekranınızda canlı inceleyin!"*
+- Sunucu: *"Sayın jüri üyeleri, telefon kameralarınızı ekrana tutun. Şişe A için saniyeler içinde oluşturduğumuz dijital hammadde pasaportunu ve imzalı LCA karbon hesabını kendi ekranınızda canlı inceleyin!"*
 - Jüri telefonunda modern, mobil optimize bir Dijital Ürün Pasaportu (DPP) açılır.
 
 ### 4.3 Kapanış Mesajı (02:30 - 03:00)

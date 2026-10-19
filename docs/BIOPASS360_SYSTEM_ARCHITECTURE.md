@@ -1,14 +1,13 @@
 # BioPass 360: Sistem Mimarisi ve Teknik Spesifikasyon Dokümanı
 **DEKATHON 2026 — Dokuz Eylül Teknoloji Geliştirme Bölgesi & DB Tarımsal Enerji**
-**Konsept:** Biyoyakıt Tedarik Zincirinde Yapay Zeka Destekli Dijital Hammadde Pasaportu, Spektroskopik Kalite Doğrulama ve RED III / CBAM Uyumlu Otomatize MRV Platformu
-**Baş Mimar:** Winston 🏗️ (BMAD System Architect)
-**Durum:** Final Mimari Tasarım (Architectural Invariants & Specifications)
+**Konsept:** Biyoyakıt Tedarik Zincirinde Yapay Zeka Destekli Dijital Hammadde Pasaportu, Spektroskopik Kalite Doğrulama ve RED III Uyumlu Otomatize MRV Platformu
+**Durum:** Hedef mimari. Bugünkü kodda yalnız LCA motoru, pasaport imzası ve sentetik spektrum modülleri vardır.
 
 ---
 
 ## 0. Mimari İlkeler ve Tasarım İnvariantları (Foundations)
 
-Bu mimari, **Werner Vogels**'ın *"Everything fails, all the time — plan for failure"* ve **Martin Fowler**'ın *"Clear domain boundaries, pragmatic modularity, and explicit state mutation"* disiplinleri temel alınarak inşa edilmiştir.
+Bu mimari, hatalara dayanıklılık, net alan sınırları ve pragmatik modülerlik ilkeleri temel alınarak tasarlanmıştır.
 
 ### Temel İnvariantlar (Architectural Invariants)
 1. **İmmutability by Design (Değiştirilemezlik Prensibi):** Saha kabul noktasında kantar, spektrometre veya GPS tarafından üretilen hiçbir birincil ölçüm verisi (raw ingest) update/delete işlemine tabi tutulamaz. Sistem yalnızca append-only (eklemeli) ve kriptografik zincirlemeyle çalışır.
@@ -285,7 +284,7 @@ flowchart LR
 
     subgraph Outputs["Doğrulanmış Çıktılar"]
         GHG_Result["📊 Nihai Karbon Yoğunluğu:<br/>g CO2eq / MJ Biyodizel"]
-        Savings_Pct["✅ GHG Tasarruf Oranı: %88.4<br/>(Baraj: >= %65 - BAŞARILI)"]
+        Savings_Pct["✅ GHG Tasarruf Oranı: %85.0<br/>(Baraj: >= %65 - BAŞARILI)"]
         Audit_Report["📄 ISCC / REDcert Uyumlu<br/>Kriptografik İtiraz Edilemez Beyan"]
     end
 
@@ -410,7 +409,7 @@ BioPass 360 Dijital Hammadde Pasaportunun (Digital Product Passport - DPP) çeki
   "feedstock": {
     "type": "USED_COOKING_OIL",
     "cn_code": "15180095",
-    "red_category": "ANNEX_IX_PART_A",
+    "red_category": "ANNEX_IX_PART_B",
     "origin": {
       "country": "TR",
       "region": "Ege",
@@ -477,6 +476,6 @@ BioPass 360 Dijital Hammadde Pasaportunun (Digital Product Passport - DPP) çeki
 ## 8. Özet ve Sonuç: Sistemin Yarattığı Değer Önerisi
 
 **BioPass 360**, biyoyakıt sektörünün karşı karşıya olduğu üç büyük problemi tek bir mimari çatıda çözer:
-1. **Güven ve Tağşiş Problemi:** Laboratuvara numune göndermeden 30 saniye içinde portatif NIR spektrometresi ve yerel AI ile kimyasal saflığı sahada garanti eder.
-2. **Yeşil Aklama (Greenwashing) ve Regülasyon Riski:** RED III Annex V ve ISO 14064 uyumlu emisyon motoru ile her partinin karbon yoğunluğunu gerçek IoT verileriyle hesaplayıp kütle dengesini korur; AB CBAM ve Union Database (UDB) entegrasyonuyla ihracat kapılarını açar.
+1. **Güven ve Tağşiş Problemi:** Laboratuvara numune göndermeden 15 saniye içinde portatif NIR spektrometresi ve yerel AI ile kimyasal saflığı sahada garanti eder.
+2. **Yeşil Aklama (Greenwashing) ve Regülasyon Riski:** RED III Annex V ve ISO 14064 uyumlu emisyon motoru ile her partinin karbon yoğunluğunu gerçek IoT verileriyle hesaplayıp kütle dengesini korur; AB Union Database (UDB) entegrasyonuyla ihracat kapılarını açar.
 3. **Maliyet ve Denetim Yükü:** Hantal blokzincirler yerine yüksek performanslı Merkle Tree mimarisi kullanarak bağımsız denetçilere saniyeler içinde doğrulanabilir, tahrif edilemez kriptografik kanıt sunar.

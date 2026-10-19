@@ -29,19 +29,19 @@ BioPass 360 uçtan uca veri akışını, saha IoT entegrasyonlarını, Edge AI a
 
 ---
 
-## 📌 Yönetici Özeti (Barbara Minto SCQA Çerçevesi)
+## 📌 Yönetici Özeti (SCQA Çerçevesi)
 
 ```
 [SITUATION - Durum]
-AB RED III Direktifi, ReFuelEU Aviation ve THY'nin DB Tarımsal Enerji'ye $42M stratejik
-yatırımıyla SAF (Sürdürülebilir Havacılık Yakıtı) ve Biyodizel talebi patlamıştır.
+AB RED III Direktifi, ReFuelEU Aviation ve THY'nin DB Tarımsal Enerji'ye ~42 M$ yatırım
+kararıyla (Nisan 2026) SAF (Sürdürülebilir Havacılık Yakıtı) ve biyodizel talebi artıyor.
                            │
                            ▼
 [COMPLICATION - Sektörel Kriz]
-UCO (Atık Yağ) ton başına $300-$400 yeşil prim sağladığı için piyasada taze palm yağı
-asitlendirilerek UCO gibi satılmaktadır (tağşiş). Mevcut ERP ve blokzincirler fiziksel içeriği
-değil yalnızca kağıt faturayı kaydeder ("Oracle Problemi"). Lab testleri 24-48 saat sürer;
-rafineri ya demuraj cezası öder ya da katalizör zehirlenmesi ve ISCC lisans iptali riskiyle karşılaşır.
+UCO (Atık Yağ) teşvikli bir hammadde olduğu için taze palm yağının asitlendirilip
+UCO gibi satılması (tağşiş) riski vardır. Mevcut ERP ve blokzincirler fiziksel içeriği
+değil yalnızca kağıt faturayı kaydeder ("Oracle Problemi"). Lab analizleri saatler sürer;
+rafineri ya tankeri bekletir ya da kalite ve sertifikasyon riskiyle karşılaşır.
                            │
                            ▼
 [QUESTION - Soru]
@@ -59,7 +59,7 @@ Portatif NIR Spektrometre + Edge AI Kemometri + W3C Uyumlu Dijital Hammadde Pasa
 ## 🚀 Temel Fonksiyonel Modüller
 
 ### 1. 🔬 Spektroskopik AI Tağşiş & Kalite Motoru (`src/biopass360/spectral/`)
-- **Portatif NIR/FTIR Entegrasyonu:** 900–1700 nm dalga boyunda ham spektral absorbanstan 15 saniyede kimyasal parmak izi analizi.
+- **NIR Spektrum Analizi (bugün sentetik veriyle simülasyon):** 900–1700 nm dalga boyunda ham spektral absorbanstan 15 saniyede kimyasal parmak izi analizi hedeflenir.
 - **Kemometrik Analiz:** Savitzky-Golay türevi, Standart Normal Değişken (SNV) dönüşümü ve PCA/PLS-DA modelleri.
 - **Parametre Kestirimi:** Serbest Yağ Asitleri (FFA % wt), Nem & Uçucu Madde (% wt), İyot Değeri (IV) ve Palm Stearini Tağşiş Yüzdesi.
 - **Otomatik Kapı Kararı:** `ACCEPTED` (Yeşil), `WARNING_BORDERLINE` (Sarı), `REJECTED_ADULTERATED` (Kırmızı - otomatik vana kilidi).
@@ -67,12 +67,12 @@ Portatif NIR Spektrometre + Edge AI Kemometri + W3C Uyumlu Dijital Hammadde Pasa
 ### 2. 🌱 RED III & CORSIA Otomatize MRV / LCA Motoru (`src/biopass360/mrv/`)
 - **AB RED II / RED III Ek V Standart Formülasyonu:**
   $$E = e_{ec} + e_l + e_p + e_{td} + e_u - e_{sca} - e_{ccs} - e_{ccr}$$
-- **Fosil Yakıt Karşılaştırıcı:** $EF_{Fossil} = 94.0\text{ gCO}_2\text{eq/MJ}$ (Biyodizel) ve $89.0\text{ gCO}_2\text{eq/MJ}$ (SAF).
-- **Otomatik GHG Tasarruf Hesabı:** Partinin minimum %65-%85 tasarruf eşiğini sağlayıp sağlamadığını gerçek zamanlı hesaplayarak ISCC / AB Union Database (UDB) formatında raporlar.
+- **Fosil Yakıt Karşılaştırıcı:** $EF_{Fossil} = 94.0\text{ gCO}_2\text{eq/MJ}$. Bugün FAME biyodizel hesaplanır; SAF (HEFA) yol haritasındadır.
+- **Otomatik GHG Tasarruf Hesabı:** Partinin minimum %65 tasarruf eşiğini sağlayıp sağlamadığını gerçek zamanlı hesaplayarak ISCC / AB Union Database (UDB) formatında raporlar.
 
 ### 3. 📜 W3C Uyumlu Dijital Hammadde Pasaportu (DPP) (`src/biopass360/passport/`)
-- **Kriptografik İmzalı Verifiable Credential:** JSON-LD tabanlı, ECDSA (secp256r1) imzalı menşe, kantar, spektroskopi ve karbon sertifikası.
-- **Merkle Tree Denetim Kanıtı:** Her kabul partisi Merkle-DAG'e eklenir; üçüncü taraf denetçiler (ISCC/TÜV) sıfır bilgi kanıtıyla (Proof of Inclusion) veriyi doğrular.
+- **Kriptografik İmzalı Verifiable Credential:** JSON-LD tabanlı, Ed25519 imzalı menşe, kantar, spektroskopi ve karbon sertifikası.
+- **Merkle Tree Denetim Kanıtı (yol haritasında):** Her kabul partisi Merkle ağacına eklenir; üçüncü taraf denetçiler (ISCC/TÜV) Merkle dahil olma kanıtıyla (Proof of Inclusion) veriyi doğrular.
 
 ### 4. ⚡ Production-Ready REST API (`src/biopass360/api/`)
 - Parti oluşturma, spektral tarama gönderimi, LCA hesaplama, dijital imza doğrulama ve parti sorgulama uç noktaları.
@@ -94,7 +94,7 @@ biopass360/
 │   │   └── lca_engine.ts        # TypeScript / Edge MRV motoru
 │   ├── passport/
 │   │   ├── schema.py            # W3C DPP JSON-LD veri şeması modelleri
-│   │   └── signer.py            # Kriptografik ECDSA imzalayıcı & doğrulayıcı
+│   │   └── signer.py            # Kriptografik Ed25519 imzalayıcı & doğrulayıcı
 │   └── spectral/
 │       ├── adulteration_detector.py # Tağşiş tespit mantığı & kalite sınıflandırıcısı
 │       ├── chemometrics.py      # Spektral önişleme & kemometri motoru
@@ -107,8 +107,8 @@ biopass360/
 │
 └── docs/                        # Kapsamlı Şartname ve Proje Dosyaları
     ├── BIOPASS360_SYSTEM_ARCHITECTURE.md    # C4 Seviye 1/2/3 mimari ve teknik spesifikasyon
-    ├── BIOPASS360_UX_SPECIFICATION.md        # Operatör arayüzü, Don Norman ergonomi spesifikasyonu
-    ├── DEKATHON2026_BIOPASS360_PROJE_DOSYASI.md # DEKATHON 2026 Jüri & Şampiyonluk proje dosyası
+    ├── BIOPASS360_UX_SPECIFICATION.md        # Operatör arayüzü ve ergonomi spesifikasyonu
+    ├── DEKATHON2026_BIOPASS360_PROJE_DOSYASI.md # DEKATHON 2026 proje dosyası
     ├── BioPass360_DEKATHON2026_Proje_Ozeti.pdf # 3 sayfalık yönetici PDF özeti
     ├── biopass360_summary.html              # HTML formatında yönetici özeti
     └── screenshot-archify.png               # Etkileşimli mimari diyagram önizlemesi
@@ -134,7 +134,7 @@ python -m unittest tests/test_spectral_analysis.py
 
 ## 🏆 DEKATHON 2026 Bağlamı & Katkı
 
-BioPass 360, **Dokuz Eylül Teknoloji Geliştirme Bölgesi (DEPARK BAMBU GO)** ve Türkiye'nin ilk ISCC CORSIA sertifikalı SAF üreticisi olan **DB Tarımsal Enerji** ortaklığıyla düzenlenen **DEKATHON 2026 (Ulaşımda Karbonsuzlaşma Ideathonu)** için geliştirilmiştir.
+BioPass 360, **Dokuz Eylül Teknoloji Geliştirme Bölgesi (DEPARK BAMBU GO)** ve **DB Tarımsal Enerji** ortaklığıyla düzenlenen **DEKATHON 2026 (Ulaşımda Karbonsuzlaşma Ideathonu)** için geliştirilmiştir.
 
 - **Canlı Mimari:** [https://biopass360.onrender.com](https://biopass360.onrender.com)
 - **Depo:** [https://github.com/cirutsohtorik/biopass360](https://github.com/cirutsohtorik/biopass360)
