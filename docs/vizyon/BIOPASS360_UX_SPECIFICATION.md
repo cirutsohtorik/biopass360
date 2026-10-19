@@ -1,6 +1,11 @@
 # BioPass 360 — UX Tasarım, Kokpit & Sunum Spesifikasyonu
+
+> **Not:** Bu belge projenin uzun vadeli hedef tasarımıdır. Buradaki teknoloji yığını ve rakamların çoğu hedef ya da varsayımdır. Bugün neyin çalıştığı [README](../../README.md)'de yazıyor.
+
 **DEKATHON 2026: Ulaşımda Karbonsuzlaşma Ideathonu**  
 **Tasarım Disiplini:** İnsan merkezli tasarım ve hedef odaklı persona yaklaşımı
+
+> **Not:** Bu belgedeki personalar kurgusaldır. Ekran taslaklarındaki bütün sayılar (tonaj, ciro, parti numaraları, sertifika kodları) örnek veridir.
 
 ---
 
@@ -278,7 +283,7 @@ timeline
   - Sunucu jüriye döner: *"Sayın jüri üyeleri, çıplak gözle veya standart yoğunluk ölçerle bu iki yağ arasındaki farkı ayırt etmek imkansızdır. Bir laboratuvar analizi saatler sürer. Mehmet Usta'nın ise kapıda bekleyen tanker için sadece 3 dakikası var!"*
 - **Simülasyon:**
   - Şişe A'yı temsil eden sentetik spektrum sisteme verilir.
-  - Ekranda 2 saniye içinde: **🟢 BÜYÜK YEŞİL ONAY - SAF UCO - RED III UYUMLU.**
+  - Ekranda 15 saniye içinde: **🟢 BÜYÜK YEŞİL ONAY - SAF UCO - RED III UYUMLU.**
   - Ardından Şişe B'yi temsil eden spektrum verilir:
   - 3... 2... 1...
   - **BÜYÜK GÖRSEL & İŞİTSEL EFEKT:** Sunum ekranı aniden **KIPKIRMIZI** yanıp söner!
@@ -295,7 +300,7 @@ timeline
 - Jüri telefonunda modern, mobil optimize bir Dijital Ürün Pasaportu (DPP) açılır.
 
 ### 4.3 Kapanış Mesajı (02:30 - 03:00)
-*"BioPass 360; tenceredeki atık yağdan gökyüzündeki sürdürülebilir havacılık yakıtına (SAF) kadar her damlanın namusudur. DEPARK ve DB Tarımsal Enerji vizyonuyla, Türkiye'yi Avrupa'nın en güvenilir yeşil biyoyakıt üssü yapmaya hazırız!"*
+*"BioPass 360; tenceredeki atık yağdan gökyüzündeki sürdürülebilir havacılık yakıtına (SAF) kadar her damlanın kaydını tutuyoruz. DEPARK ve DB Tarımsal Enerji vizyonuyla, Türkiye'yi Avrupa'nın en güvenilir yeşil biyoyakıt üssü yapmaya hazırız!"*
 
 ---
 

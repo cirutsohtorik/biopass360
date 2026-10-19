@@ -1,4 +1,7 @@
 # BioPass 360: Sistem Mimarisi ve Teknik Spesifikasyon Dokümanı
+
+> **Not:** Bu belge projenin uzun vadeli hedef tasarımıdır. Buradaki teknoloji yığını ve rakamların çoğu hedef ya da varsayımdır. Bugün neyin çalıştığı [README](../../README.md)'de yazıyor.
+
 **DEKATHON 2026 — Dokuz Eylül Teknoloji Geliştirme Bölgesi & DB Tarımsal Enerji**
 **Konsept:** Biyoyakıt Tedarik Zincirinde Yapay Zeka Destekli Dijital Hammadde Pasaportu, Spektroskopik Kalite Doğrulama ve RED III Uyumlu Otomatize MRV Platformu
 **Durum:** Hedef mimari. Bugünkü kodda yalnız LCA motoru, pasaport imzası ve sentetik spektrum modülleri vardır.
@@ -12,10 +15,10 @@ Bu mimari, hatalara dayanıklılık, net alan sınırları ve pragmatik modüler
 ### Temel İnvariantlar (Architectural Invariants)
 1. **İmmutability by Design (Değiştirilemezlik Prensibi):** Saha kabul noktasında kantar, spektrometre veya GPS tarafından üretilen hiçbir birincil ölçüm verisi (raw ingest) update/delete işlemine tabi tutulamaz. Sistem yalnızca append-only (eklemeli) ve kriptografik zincirlemeyle çalışır.
 2. **Offline-First Resilience (Ağdan Bağımsız Çalışabilirlik):** Kırsal alanlarda, tarla kenarlarında veya yer altı depolama sahalarında internet bağlantısı kopsa dahi saha terminali hammadde kabulü yapabilmeli, spektrometrik taramayı yerel AI modeliyle çalıştırabilmeli ve veriyi donanımsal olarak imzalayıp lokalde güvenle kuyruğa alabilmelidir.
-3. **Pragmatic vs. Bleeding-Edge Ayrımı:** Çekirdek veri saklama ve işleme katmanında endüstri standardı "boring technology" (PostgreSQL, Go, Linux IPC) kullanılırken; teknolojik rekabet üstünlüğü (moat) yalnızca iki noktada bleeding-edge teknolojilere ayrılmıştır:
-   - *Moat 1:* Portatif NIR (Near-Infrared) spektrum verisinden gerçek zamanlı kimyasal tağşiş/kalite kestirimi yapan yerel edge AI motoru.
-   - *Moat 2:* Biyorafineri harmanlama tanklarında kütle dengesini (mass balancing) kriptografik Merkle-DAG ile takip eden dijital soykütüğü (lineage engine).
-4. **Kriptografik İspatlanabilirlik (Zero-Trust Auditability):** Sistem, merkezi veritabanı yöneticisine (DBA) dahi güven duyulmasını gerektirmez. Her kabul partisi (batch), çift yönlü kriptografik hashleme ve Merkle Tree logları ile bağımsız denetçilere (ISCC, REDcert, TÜV) matematiksel olarak doğrulanabilir kanıt sunar.
+3. **Yerleşik ve Yeni Teknoloji Ayrımı:** Çekirdek veri saklama ve işleme katmanında yaygın ve olgun teknolojiler (PostgreSQL, Go, Linux IPC) kullanılırken; yenilikçi teknoloji yalnızca iki noktada kullanılır:
+   - *Fark 1:* Portatif NIR (Near-Infrared) spektrum verisinden gerçek zamanlı kimyasal tağşiş/kalite kestirimi yapan yerel edge AI motoru.
+   - *Fark 2:* Biyorafineri harmanlama tanklarında kütle dengesini (mass balancing) kriptografik Merkle-DAG ile takip eden dijital soykütüğü (lineage engine).
+4. **Kriptografik İspatlanabilirlik (Bağımsız Denetlenebilirlik):** Sistem, merkezi veritabanı yöneticisine (DBA) dahi güven duyulmasını gerektirmez. Her kabul partisi (batch), çift yönlü kriptografik hashleme ve Merkle Tree logları ile bağımsız denetçilere (ISCC, REDcert, TÜV) matematiksel olarak doğrulanabilir kanıt sunar.
 
 ---
 
@@ -164,7 +167,7 @@ sequenceDiagram
     Edge->>Kantar: Modbus TCP ile Brüt Ağırlık Oku
     Kantar-->>Edge: Brüt Tartım Verisi (Tare + Gross, 24.520 kg)
     Edge->>NIR: Spektroskopik Tarama Tetikleme (BLE 5.2)
-    NIR-->>Edge: Ham Absorban Spektrumu (900-1700 nm, 228 Dalga Boyu)
+    NIR-->>Edge: Ham Absorban Spektrumu (900-1700 nm, 161 Dalga Boyu)
     Note over Edge: Lokal ONNX Model İnferansı:<br/>FFA: %4.2, Su: %0.4, Tağşiş: NEGATİF (Güven: %99.4)
     Edge->>Edge: Donanımsal TPM/Secure Element ile İmzala (Ed25519)
     Edge->>Broker: MQTT QoS 2: biopass/plants/izmir/intake/batch_0942
@@ -331,9 +334,9 @@ BioPass 360, **ISCC 205 (Mass Balance)** kural motorunu dijitalleştirir:
 
 ---
 
-## 5. Teknoloji Yığını ve Seçim Gerekçeleri (Pragmatic vs. Moat)
+## 5. Teknoloji Yığını ve Seçim Gerekçeleri 
 
-Aşağıdaki mimari matris, Dan McKinley'in *"Choose Boring Technology"* prensibi ile rekabet avantajı sağlayan yenilikçi bileşenleri ayırır:
+Aşağıdaki tablo yerleşik bileşenleri ve projeye özgü yenilikçi bileşenleri ayırır:
 
 | Katman | Seçilen Teknoloji | Değerlendirilen Alternatifler | Karar Gerekçesi (Architectural Rationale) | Tip |
 | :--- | :--- | :--- | :--- | :--- |

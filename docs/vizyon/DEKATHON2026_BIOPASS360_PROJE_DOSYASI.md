@@ -1,5 +1,7 @@
 # 🌿 BioPass 360 — DEKATHON 2026 Proje Dosyası
 
+> **Not:** Bu belge projenin uzun vadeli hedef tasarımıdır. Buradaki teknoloji yığını ve rakamların çoğu hedef ya da varsayımdır. Bugün neyin çalıştığı [README](../../README.md)'de yazıyor.
+
 > **Proje Adı:** BioPass 360 (Biyoyakıt ve SAF Tedarik Zincirinde Spektroskopik AI Hammadde Pasaportu & RED III Otomatize MRV Platformu)  
 > **Hedef Etkinlik:** DEKATHON 2026 — Ulaşımda Karbonsuzlaşma Ideathonu (Logistech Fuarı & BAMBU GO)  
 > **Düzenleyen / Ana Paydaşlar:** Dokuz Eylül Üniversitesi DEPARK BAMBU GO & **DB Tarımsal Enerji**, İZFAŞ Desteğiyle  
@@ -9,7 +11,7 @@
 
 ## 📌 İçindekiler
 1. [Yönetici Özeti (SCQA Çerçevesi)](#1-yönetici-özeti)
-2. [Sektörel Kriz & "The Burning Platform" (Neden Şimdi?)](#2-sektörel-kriz--the-burning-platform)
+2. [Sektördeki Sorunlar](#2-sektördeki-sorunlar)
 3. [Çözüm: BioPass 360 Nasıl Çalışır?](#3-çözüm-biopass-360-nasıl-çalışır)
 4. [Rekabet Avantajı](#4-rekabet-avantajı)
 5. [İş Modeli, Pazar Analizi & Finansal Getiri (DB Tarımsal Enerji ROI)](#5-iş-modeli-pazar-analizi--db-tarımsal-enerji-roi)
@@ -37,7 +39,7 @@ flowchart LR
 
 ---
 
-## 2. Sektörel Kriz & "The Burning Platform"
+## 2. Sektördeki Sorunlar
 
 Biyoyakıt ve yeşil lojistik sektörü 2026 yılı itibarıyla 4 kritik krizle yüzleşmektedir:
 
@@ -268,7 +270,7 @@ Sahneye 3 kişilik öğrenci takımı çıkar. Masaya iki adet özdeş, berrak s
   > *"Kağıt evrakı blokzincire yazmak yetmez; yalanı yazarsanız yalanı ölümsüzleştirirsiniz. Biz molekülün kimyasal parmak izini dijital veriye bağlamayı hedefliyoruz."*
 
 * **02:35 - 03:00 | Kapanış:**  
-  > *"BioPass 360; kızartma tenceresinden jet motoruna kadar her damlanın namusudur. DB Tarımsal Enerji ve DEPARK ile ulaştırmanın karbonsuzlaşmasında Türkiye'yi Avrupa'nın en güvenilir üssü yapmaya hazırız!"*
+  > *"BioPass 360; kızartma tenceresinden jet motoruna kadar her damlanın kaydını tutuyoruz. DB Tarımsal Enerji ve DEPARK ile ulaştırmanın karbonsuzlaşmasında Türkiye'yi Avrupa'nın en güvenilir üssü yapmaya hazırız!"*
 
 ---
 
@@ -302,13 +304,13 @@ gantt
 ## 📁 Proje Dosya ve Kod Haritası
 Proje kapsamında tüm çalışan Python/TypeScript modülleri, birim testleri ve mimari belgeleri diskte oluşturulmuştur:
 
-* 🏗️ **Sistem Mimarisi:** [`docs/BIOPASS360_SYSTEM_ARCHITECTURE.md`](../docs/BIOPASS360_SYSTEM_ARCHITECTURE.md)
-* 🎨 **UX ve Arayüz Tasarımı:** [`docs/BIOPASS360_UX_SPECIFICATION.md`](../docs/BIOPASS360_UX_SPECIFICATION.md)
-* 🧪 **LCA Emisyon Motoru:** [`src/biopass360/mrv/lca_engine.py`](../src/biopass360/mrv/lca_engine.py) & [`lca_engine.ts`](../src/biopass360/mrv/lca_engine.ts)
-* 🔬 **Spektrometre & Tağşiş Dedektörü:** [`src/biopass360/spectral/chemometrics.py`](../src/biopass360/spectral/chemometrics.py) & [`adulteration_detector.py`](../src/biopass360/spectral/adulteration_detector.py)
-* 📜 **Dijital Pasaport & İmzacı:** [`src/biopass360/passport/schema.py`](../src/biopass360/passport/schema.py) & [`signer.py`](../src/biopass360/passport/signer.py)
-* 🌐 **REST API Uç Noktaları:** [`src/biopass360/api/endpoints.py`](../src/biopass360/api/endpoints.py)
-* ✅ **TDD Birim Testleri:** [`tests/test_lca_engine.py`](../tests/test_lca_engine.py), [`test_spectral_analysis.py`](../tests/test_spectral_analysis.py), [`test_passport_schema.py`](../tests/test_passport_schema.py)
+* 🏗️ **Sistem Mimarisi:** [`docs/vizyon/BIOPASS360_SYSTEM_ARCHITECTURE.md`](BIOPASS360_SYSTEM_ARCHITECTURE.md)
+* 🎨 **UX ve Arayüz Tasarımı:** [`docs/vizyon/BIOPASS360_UX_SPECIFICATION.md`](BIOPASS360_UX_SPECIFICATION.md)
+* 🧪 **LCA Emisyon Motoru:** [`src/biopass360/mrv/lca_engine.py`](../../src/biopass360/mrv/lca_engine.py) & [`lca_engine.ts`](../../src/biopass360/mrv/lca_engine.ts)
+* 🔬 **Spektrometre & Tağşiş Dedektörü:** [`src/biopass360/spectral/chemometrics.py`](../../src/biopass360/spectral/chemometrics.py) & [`adulteration_detector.py`](../../src/biopass360/spectral/adulteration_detector.py)
+* 📜 **Dijital Pasaport & İmzacı:** [`src/biopass360/passport/schema.py`](../../src/biopass360/passport/schema.py) & [`signer.py`](../../src/biopass360/passport/signer.py)
+* 🌐 **REST API Uç Noktaları:** [`src/biopass360/api/endpoints.py`](../../src/biopass360/api/endpoints.py)
+* ✅ **TDD Birim Testleri:** [`tests/test_lca_engine.py`](../../tests/test_lca_engine.py), [`test_spectral_analysis.py`](../../tests/test_spectral_analysis.py), [`test_passport_schema.py`](../../tests/test_passport_schema.py)
 
 ---
 
