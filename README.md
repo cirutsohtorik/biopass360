@@ -41,7 +41,7 @@ PYTHONPATH=src python3 -m unittest discover -s tests -p "test_*.py"
 
 - `docs/vizyon/`: Uzun vadeli hedef tasarım (mimari, arayüz, proje dosyası). Oradaki teknoloji yığını ve rakamların çoğu hedef ya da varsayım. Bugünkü kapsam yukarıdaki tabloda.
 - `docs/biopass360_summary.html` ve `docs/BioPass360_DEKATHON2026_Proje_Ozeti.pdf`: Kısa proje özeti.
-- [Tanıtım videosu (YouTube)](https://www.youtube.com/watch?v=uQ6A-HtPJjg)
+- [Tanıtım videosu](https://biopass360.onrender.com/docs/brag.mp4)
 
 ## Kaynaklar
 
