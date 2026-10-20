@@ -5,16 +5,16 @@
 
 [![Live Website](https://img.shields.io/badge/Live%20Demo-biopass360.onrender.com-brightgreen?style=flat-square&logo=render)](https://biopass360.onrender.com)
 [![Regulation](https://img.shields.io/badge/Compliance-EU%20RED%20III%20%7C%20CORSIA%20%7C%20ISCC-blue?style=flat-square)](https://biopass360.onrender.com)
-[![YouTube Pitch Video](https://img.shields.io/badge/YouTube-Watch%20Pitch%20Video-red?style=flat-square&logo=youtube)](https://www.youtube.com/watch?v=uQ6A-HtPJjg)
+[![Pitch Video](https://img.shields.io/badge/Video-Watch%20Pitch%20Video-red?style=flat-square&logo=youtube)](https://biopass360.onrender.com/docs/brag.mp4)
 [![Architecture](https://img.shields.io/badge/Architecture-Archify%20Interactive-purple?style=flat-square)](https://biopass360.onrender.com)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square&logo=python)](src/biopass360)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0%2B-blue?style=flat-square&logo=typescript)](src/biopass360/mrv)
 
 ---
 
-## 🎬 Proje Tanıtım & Pitch Videosu (YouTube)
+## 🎬 Proje Tanıtım & Pitch Videosu
 
-> ▶️ **[YouTube Üzerinden İzlemek İçin Tıklayın (BioPass 360 Tanıtım Videosu)](https://www.youtube.com/watch?v=uQ6A-HtPJjg)**  
+> ▶️ **[Tanıtım Videosunu İzlemek İçin Tıklayın (BioPass 360 Tanıtım Videosu)](https://biopass360.onrender.com/docs/brag.mp4)**  
 > 🌐 *Ayrıca [Canlı Web Sitemiz](https://biopass360.onrender.com) üzerinde sağ üstteki kırmızı **"Tanıtım Videosu"** butonuna basarak sayfadan ayrılmadan da izleyebilirsiniz.*
 
 ---

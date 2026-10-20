@@ -5200,7 +5200,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       </div>
     </div>
     <button id="btn-yt-video" type="button" onclick="openBioPassVideoModal()"
-            title="Tanıtım Videosunu İzle (YouTube)"
+            title="Tanıtım Videosunu İzle"
             aria-label="Tanıtım Videosunu İzle">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
@@ -15181,24 +15181,24 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
       <button onclick="closeBioPassVideoModal()" style="background:transparent;border:none;color:#94a3b8;font-size:22px;cursor:pointer;padding:4px 8px;line-height:1;border-radius:6px;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#94a3b8'">&times;</button>
     </div>
     <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;background:#000;">
-      <iframe id="biopass-yt-iframe" src="" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <video id="biopass-video-player" src="docs/brag.mp4" poster="docs/video-preview.png" controls playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;background:#000;"></video>
     </div>
     <div style="padding:12px 20px;display:flex;align-items:center;justify-content:space-between;background:#1e293b;font-family:sans-serif;font-size:13px;color:#94a3b8;">
       <span>DEKATHON 2026 — Dokuz Eylül Teknoloji Geliştirme Bölgesi & DB Tarımsal Enerji</span>
-      <a href="https://youtu.be/uQ6A-HtPJjg" target="_blank" rel="noopener noreferrer" style="color:#38bdf8;text-decoration:none;font-weight:500;">YouTube'da Aç &nearr;</a>
+      <a href="docs/brag.mp4" target="_blank" rel="noopener noreferrer" style="color:#38bdf8;text-decoration:none;font-weight:500;">Yeni Sekmede Aç &nearr;</a>
     </div>
   </div>
 </div>
 <script>
 function openBioPassVideoModal() {
-  document.getElementById('biopass-yt-iframe').src = 'https://www.youtube.com/embed/uQ6A-HtPJjg?autoplay=1';
+  var v = document.getElementById('biopass-video-player'); if (v) { v.currentTime = 0; v.play().catch(function(){}); }
   var modal = document.getElementById('biopass-video-modal');
   modal.style.display = 'flex';
 }
 function closeBioPassVideoModal() {
   var modal = document.getElementById('biopass-video-modal');
   modal.style.display = 'none';
-  document.getElementById('biopass-yt-iframe').src = '';
+  var v = document.getElementById('biopass-video-player'); if (v) { v.pause(); }
 }
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeBioPassVideoModal();
