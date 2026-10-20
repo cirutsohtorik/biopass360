@@ -1,22 +1,24 @@
 # BioPass 360: Sistem Mimarisi ve Teknik Spesifikasyon Dokümanı
+
+> **Not:** Bu belge projenin uzun vadeli hedef tasarımıdır. Buradaki teknoloji yığını ve rakamların çoğu hedef ya da varsayımdır. Bugün neyin çalıştığı [README](../../README.md)'de yazıyor.
+
 **DEKATHON 2026 — Dokuz Eylül Teknoloji Geliştirme Bölgesi & DB Tarımsal Enerji**
-**Konsept:** Biyoyakıt Tedarik Zincirinde Yapay Zeka Destekli Dijital Hammadde Pasaportu, Spektroskopik Kalite Doğrulama ve RED III / CBAM Uyumlu Otomatize MRV Platformu
-**Baş Mimar:** Winston 🏗️ (BMAD System Architect)
-**Durum:** Final Mimari Tasarım (Architectural Invariants & Specifications)
+**Konsept:** Biyoyakıt Tedarik Zincirinde Yapay Zeka Destekli Dijital Hammadde Pasaportu, Spektroskopik Kalite Doğrulama ve RED III Uyumlu Otomatize MRV Platformu
+**Durum:** Hedef mimari. Bugünkü kodda yalnız LCA motoru, pasaport imzası ve sentetik spektrum modülleri vardır.
 
 ---
 
 ## 0. Mimari İlkeler ve Tasarım İnvariantları (Foundations)
 
-Bu mimari, **Werner Vogels**'ın *"Everything fails, all the time — plan for failure"* ve **Martin Fowler**'ın *"Clear domain boundaries, pragmatic modularity, and explicit state mutation"* disiplinleri temel alınarak inşa edilmiştir.
+Bu mimari, hatalara dayanıklılık, net alan sınırları ve pragmatik modülerlik ilkeleri temel alınarak tasarlanmıştır.
 
 ### Temel İnvariantlar (Architectural Invariants)
 1. **İmmutability by Design (Değiştirilemezlik Prensibi):** Saha kabul noktasında kantar, spektrometre veya GPS tarafından üretilen hiçbir birincil ölçüm verisi (raw ingest) update/delete işlemine tabi tutulamaz. Sistem yalnızca append-only (eklemeli) ve kriptografik zincirlemeyle çalışır.
 2. **Offline-First Resilience (Ağdan Bağımsız Çalışabilirlik):** Kırsal alanlarda, tarla kenarlarında veya yer altı depolama sahalarında internet bağlantısı kopsa dahi saha terminali hammadde kabulü yapabilmeli, spektrometrik taramayı yerel AI modeliyle çalıştırabilmeli ve veriyi donanımsal olarak imzalayıp lokalde güvenle kuyruğa alabilmelidir.
-3. **Pragmatic vs. Bleeding-Edge Ayrımı:** Çekirdek veri saklama ve işleme katmanında endüstri standardı "boring technology" (PostgreSQL, Go, Linux IPC) kullanılırken; teknolojik rekabet üstünlüğü (moat) yalnızca iki noktada bleeding-edge teknolojilere ayrılmıştır:
-   - *Moat 1:* Portatif NIR (Near-Infrared) spektrum verisinden gerçek zamanlı kimyasal tağşiş/kalite kestirimi yapan yerel edge AI motoru.
-   - *Moat 2:* Biyorafineri harmanlama tanklarında kütle dengesini (mass balancing) kriptografik Merkle-DAG ile takip eden dijital soykütüğü (lineage engine).
-4. **Kriptografik İspatlanabilirlik (Zero-Trust Auditability):** Sistem, merkezi veritabanı yöneticisine (DBA) dahi güven duyulmasını gerektirmez. Her kabul partisi (batch), çift yönlü kriptografik hashleme ve Merkle Tree logları ile bağımsız denetçilere (ISCC, REDcert, TÜV) matematiksel olarak doğrulanabilir kanıt sunar.
+3. **Yerleşik ve Yeni Teknoloji Ayrımı:** Çekirdek veri saklama ve işleme katmanında yaygın ve olgun teknolojiler (PostgreSQL, Go, Linux IPC) kullanılırken; yenilikçi teknoloji yalnızca iki noktada kullanılır:
+   - *Fark 1:* Portatif NIR (Near-Infrared) spektrum verisinden gerçek zamanlı kimyasal tağşiş/kalite kestirimi yapan yerel edge AI motoru.
+   - *Fark 2:* Biyorafineri harmanlama tanklarında kütle dengesini (mass balancing) kriptografik Merkle-DAG ile takip eden dijital soykütüğü (lineage engine).
+4. **Kriptografik İspatlanabilirlik (Bağımsız Denetlenebilirlik):** Sistem, merkezi veritabanı yöneticisine (DBA) dahi güven duyulmasını gerektirmez. Her kabul partisi (batch), çift yönlü kriptografik hashleme ve Merkle Tree logları ile bağımsız denetçilere (ISCC, REDcert, TÜV) matematiksel olarak doğrulanabilir kanıt sunar.
 
 ---
 
@@ -165,7 +167,7 @@ sequenceDiagram
     Edge->>Kantar: Modbus TCP ile Brüt Ağırlık Oku
     Kantar-->>Edge: Brüt Tartım Verisi (Tare + Gross, 24.520 kg)
     Edge->>NIR: Spektroskopik Tarama Tetikleme (BLE 5.2)
-    NIR-->>Edge: Ham Absorban Spektrumu (900-1700 nm, 228 Dalga Boyu)
+    NIR-->>Edge: Ham Absorban Spektrumu (900-1700 nm, 161 Dalga Boyu)
     Note over Edge: Lokal ONNX Model İnferansı:<br/>FFA: %4.2, Su: %0.4, Tağşiş: NEGATİF (Güven: %99.4)
     Edge->>Edge: Donanımsal TPM/Secure Element ile İmzala (Ed25519)
     Edge->>Broker: MQTT QoS 2: biopass/plants/izmir/intake/batch_0942
@@ -285,7 +287,7 @@ flowchart LR
 
     subgraph Outputs["Doğrulanmış Çıktılar"]
         GHG_Result["📊 Nihai Karbon Yoğunluğu:<br/>g CO2eq / MJ Biyodizel"]
-        Savings_Pct["✅ GHG Tasarruf Oranı: %88.4<br/>(Baraj: >= %65 - BAŞARILI)"]
+        Savings_Pct["✅ GHG Tasarruf Oranı: %85.0<br/>(Baraj: >= %65 - BAŞARILI)"]
         Audit_Report["📄 ISCC / REDcert Uyumlu<br/>Kriptografik İtiraz Edilemez Beyan"]
     end
 
@@ -332,9 +334,9 @@ BioPass 360, **ISCC 205 (Mass Balance)** kural motorunu dijitalleştirir:
 
 ---
 
-## 5. Teknoloji Yığını ve Seçim Gerekçeleri (Pragmatic vs. Moat)
+## 5. Teknoloji Yığını ve Seçim Gerekçeleri 
 
-Aşağıdaki mimari matris, Dan McKinley'in *"Choose Boring Technology"* prensibi ile rekabet avantajı sağlayan yenilikçi bileşenleri ayırır:
+Aşağıdaki tablo yerleşik bileşenleri ve projeye özgü yenilikçi bileşenleri ayırır:
 
 | Katman | Seçilen Teknoloji | Değerlendirilen Alternatifler | Karar Gerekçesi (Architectural Rationale) | Tip |
 | :--- | :--- | :--- | :--- | :--- |
@@ -410,7 +412,7 @@ BioPass 360 Dijital Hammadde Pasaportunun (Digital Product Passport - DPP) çeki
   "feedstock": {
     "type": "USED_COOKING_OIL",
     "cn_code": "15180095",
-    "red_category": "ANNEX_IX_PART_A",
+    "red_category": "ANNEX_IX_PART_B",
     "origin": {
       "country": "TR",
       "region": "Ege",
@@ -477,6 +479,6 @@ BioPass 360 Dijital Hammadde Pasaportunun (Digital Product Passport - DPP) çeki
 ## 8. Özet ve Sonuç: Sistemin Yarattığı Değer Önerisi
 
 **BioPass 360**, biyoyakıt sektörünün karşı karşıya olduğu üç büyük problemi tek bir mimari çatıda çözer:
-1. **Güven ve Tağşiş Problemi:** Laboratuvara numune göndermeden 30 saniye içinde portatif NIR spektrometresi ve yerel AI ile kimyasal saflığı sahada garanti eder.
-2. **Yeşil Aklama (Greenwashing) ve Regülasyon Riski:** RED III Annex V ve ISO 14064 uyumlu emisyon motoru ile her partinin karbon yoğunluğunu gerçek IoT verileriyle hesaplayıp kütle dengesini korur; AB CBAM ve Union Database (UDB) entegrasyonuyla ihracat kapılarını açar.
+1. **Güven ve Tağşiş Problemi:** Laboratuvara numune göndermeden 15 saniye içinde portatif NIR spektrometresi ve yerel AI ile kimyasal saflığı sahada garanti eder.
+2. **Yeşil Aklama (Greenwashing) ve Regülasyon Riski:** RED III Annex V ve ISO 14064 uyumlu emisyon motoru ile her partinin karbon yoğunluğunu gerçek IoT verileriyle hesaplayıp kütle dengesini korur; AB Union Database (UDB) entegrasyonuyla ihracat kapılarını açar.
 3. **Maliyet ve Denetim Yükü:** Hantal blokzincirler yerine yüksek performanslı Merkle Tree mimarisi kullanarak bağımsız denetçilere saniyeler içinde doğrulanabilir, tahrif edilemez kriptografik kanıt sunar.
